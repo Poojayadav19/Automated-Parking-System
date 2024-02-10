@@ -59,7 +59,7 @@ Retrieves information about all cars parked.
 2. Make sure no process is running on port 8089
 3. Now run the command "sh start-service.sh"
 4. Now open another terminal window, and navigate to folder "Execution-Files"
-5. Run command "sh start-parking-system.sh" to get started with the command line interactive interface to the service
+5. Run command " sh start_parking_system.sh" to get started with the command line interactive interface to the service
 
 Sample commands supported are following:
 
