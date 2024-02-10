@@ -28,6 +28,7 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.slf4j:slf4j-api'
+	implementation 'ch.qos.logback:logback-classic'
 }
 
 tasks.named('test') {
