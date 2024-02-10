@@ -50,7 +50,6 @@ call_api() {
         # Extract response status code
         http_code=${response:(-3)}
         # Remove the last line (status code) from the response
-        echo "Response: $response"
         length_of_body=${#response}
         if [ $length_of_body -gt 3 ]; then
             body=${response:0:$((length_of_body-3))}
