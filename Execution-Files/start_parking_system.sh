@@ -23,7 +23,7 @@ call_api() {
             response=$(curl -X PUT -s -w "%{http_code}" "$BASE_URL/leave/$slot_num")
             ;;
         "status")
-            response=$(curl -s "$BASE_URL/parkingstatus")
+            response=$(curl -s "$BASE_URL/parking")
             ;;
         "registration_numbers_for_cars_with_colour")
             color=${words[1]}
