@@ -4,6 +4,11 @@ public class CarDetailsDTO {
 	private String registrationNumber;
 	private String color;
 	
+	public CarDetailsDTO(String registrationNumber, String color) {
+		this.registrationNumber= registrationNumber;
+		this.color=color;
+	}
+
 	public String getRegistrationNumber() {
         return registrationNumber;
     }

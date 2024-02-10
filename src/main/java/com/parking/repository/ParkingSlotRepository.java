@@ -1,10 +1,8 @@
 package com.parking.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.parking.model.Car;
 import com.parking.model.ParkingSlot;
-
 import java.util.List;
 import java.util.Optional;
 

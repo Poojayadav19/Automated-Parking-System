@@ -1,11 +1,10 @@
 package com.parking.service;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.parking.dto.CarDetailsDTO;
 import com.parking.exception.BadRequestException;
 import com.parking.exception.ElementNotFoundException;
@@ -93,9 +92,9 @@ public class ParkingServiceImpl implements ParkingService{
 
 	@Override
 	public List<String> getRegistrationNumberListByColor(String color) {
-		List<String> registrationNumberList = carRepository.findRegistrationNumbersByColor(color);
+		List<String> registrationNumberList = carRepository.findRegistrationNumbersByColor(color.toLowerCase());
 		if(registrationNumberList.size() > 0) {
-			return carRepository.findRegistrationNumbersByColor(color);
+			return registrationNumberList;
 		} else throw new ElementNotFoundException("No car found with color " + color);
 	}
 
@@ -109,7 +108,7 @@ public class ParkingServiceImpl implements ParkingService{
 	@Override
 	public List<Integer> getParkingSlotListByColor(String color) {
 		List<Integer> slotNumbers = new ArrayList<>();
-		List<Car> cars = carRepository.findByColor(color);
+		List<Car> cars = carRepository.findByColor(color.toLowerCase());
 		if(cars.size() > 0) {
 			for (Car car : cars) {
 				Optional<ParkingSlot> parkingSlotOptional = parkingSlotRepository.findByCar(car);
@@ -118,8 +117,6 @@ public class ParkingServiceImpl implements ParkingService{
 			return slotNumbers;
 		} else throw new ElementNotFoundException("No car found with color " + color);
 	}
-
-
 
 	public List<ParkingSlot> getAllAvailableParkingSlots() {
 		return parkingSlotRepository.findByIsOccupied(false);

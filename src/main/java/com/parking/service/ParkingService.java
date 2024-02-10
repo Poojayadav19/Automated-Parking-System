@@ -1,7 +1,6 @@
 package com.parking.service;
 
 import java.util.List;
-
 import com.parking.dto.CarDetailsDTO;
 import com.parking.model.Car;
 import com.parking.model.ParkingSlot;

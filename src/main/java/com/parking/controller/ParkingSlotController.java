@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.parking.dto.CarDetailsDTO;
 import com.parking.model.Car;
 import com.parking.service.ParkingService;
@@ -70,7 +69,7 @@ public class ParkingSlotController {
 	 * @return String contains availability status of slot number
 	 * */
 	@PutMapping("/leave/{slotNumber}")
-	public ResponseEntity<String> deallocateParkingSlot(@PathVariable Integer slotNumber) throws Exception {
+	public ResponseEntity<String> deallocateParkingSlot(@PathVariable Integer slotNumber){
 		try {
 			parkingService.deallotcateParkingSlotBySlotNumber(slotNumber);
 			return new ResponseEntity<>("Slot number " + slotNumber +" is free", HttpStatus.OK);
@@ -114,7 +113,7 @@ public class ParkingSlotController {
 	 * @return List<Integer> contains list of slot numbers
 	 */
 	@GetMapping("/parkingslotlist/{color}")
-	public ResponseEntity<List<Integer>> SlotNumbersByColour(@PathVariable String color) {
+	public ResponseEntity<List<Integer>> slotNumbersByColour(@PathVariable String color) {
 	    return new ResponseEntity<List<Integer>>(parkingService.getParkingSlotListByColor(color), HttpStatus.OK);
 	}
 
